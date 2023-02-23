@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://schemafreesql.com/cssreset-min.css">
 <link rel="stylesheet" href="https://schemafreesql.com/main.css">
 
-<!--  favicon - start -->
+
 <link rel="apple-touch-icon" sizes="180x180" href="https://schemafreesql.com/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://schemafreesql.com/favicons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="https://schemafreesql.com/favicons/favicon-16x16.png">
@@ -19,11 +19,12 @@
 <meta name="msapplication-config" content="https://schemafreesql.com/favicons/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-title" content="SFSQL">
-<!--  favicon - end -->
+
 <link rel="stylesheet" href="https://schemafreesql.com/grid.css">
 <script src="cytoscape.min.js"></script>
 </head>
 <body>
+<!--
 <nav>
 	<div class="logo">
 	 <a href="/"><img id="svglogo" src="https://schemafreesql.com/images/logo-schemafreesql.svg" title="SchemafreeSQL" alt="SchemafreeSQL"></a>
@@ -31,7 +32,7 @@
 	 </div>
 	<div style="display:flex; flex-direction:row">
 		<div class="topMenuLinkGroup">
-												<!--<a class="topPlainAnchor showInHome"  href="createaccount.html">Create Account</a>-->
+												
 		</div>
 		<div class="topCtaGroup">
 			<a class="nav_twitter" href="https://twitter.com/SchemafreeSQL">
@@ -45,16 +46,19 @@
 </nav>
 <section id="hero" class="scrollsensor">
 	<div class="sectionWrap">
-		<main>				
+		<main>	
+-->		
 This is the <a href="https://harmonious-mermaid-c4d794.netlify.app/">SchemafreeSQL Netlify Site</a> GOT Most Connected Demo.<br>
 <a href="https://github.com/SchemaFreeSQL/netlifysite/tree/main/public">This page(got.html)</a> calls two Netlify Function(AWS LAMDA) and prepares the data for use by the <a href="https://js.cytoscape.org/">Cytoscape.js</a> Graph theory network library<br>
 <br>
 Here is a direct link to the results of the <a href="/.netlify/functions/nodes">NODES</a> and <a href="/.netlify/functions/edges">Edges</a> functions and 
 the <a href="https://github.com/SchemaFreeSQL/netlifysite/tree/main/netlify/functions">node.js and edge.js functions</a>. Had to break it down into two functions because the browser and AWS LAMDA/Netlify where complaining (server-side php did not complain). Not shown in the demo are the <a href="nodemodify.json">Node</a> and <a href="edgemodify.json">Edge</a> modify commands that where first run before the most connected query can be run. These modify commands use the raw Data from <a href="https://www.kaggle.com/code/mmmarchetti/game-of-thrones-network-analysis/data?select=book4.csv">Game of Thrones: Network Analysis: Book 4</a>
+
+<!--		
 		</main>
 	</div>
 </section>
-
+-->
 
 
 
@@ -181,7 +185,7 @@ cy.bind('click ', 'node', function (evt) {
 
 </script>
 
-
+<!--
 <div id="footer" class="scrollsensor">
 	<div class="footerGrid">
 				<div class="footerCol">
@@ -206,5 +210,6 @@ cy.bind('click ', 'node', function (evt) {
 	</div>
 	<div>&copy; 2012-2022 Xornet, Inc.</div>
 </div>
+-->
 </body>
 </html>
