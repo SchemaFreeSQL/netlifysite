@@ -1,10 +1,29 @@
 <html>
 <head>
-<title>SchemafreeSQL Netlify GOT Demo</title>
+<title>SchemafreeSQL Demo Shop Admin</title>
+<meta property='og:title' content='SchemafreeSQL Demo Netlify Site'/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="SchemafreeSQL empowers your SQL database">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="stylesheet" href="https://schemafreesql.com/cssreset-min.css">
+<link rel="stylesheet" href="https://schemafreesql.com/main.css">
+
+<!--  favicon - start -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://schemafreesql.com/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://schemafreesql.com/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://schemafreesql.com/favicons/favicon-16x16.png">
+<link rel="mask-icon" href="https://schemafreesql.com/favicons/safari-pinned-tab.svg" color="#2e5696">
+<link rel="shortcut icon" href="https://schemafreesql.com/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#2e5696">
+<meta name="msapplication-config" content="https://schemafreesql.com/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-title" content="SFSQL">
+<!--  favicon - end -->
+<link rel="stylesheet" href="https://schemafreesql.com/grid.css">
 <script src="cytoscape.min.js"></script>
 </head>
 <body>
-
 <nav>
 	<div class="logo">
 	 <a href="/"><img id="svglogo" src="https://schemafreesql.com/images/logo-schemafreesql.svg" title="SchemafreeSQL" alt="SchemafreeSQL"></a>
@@ -12,7 +31,7 @@
 	 </div>
 	<div style="display:flex; flex-direction:row">
 		<div class="topMenuLinkGroup">
-												
+											
 		</div>
 		<div class="topCtaGroup">
 			<a class="nav_twitter" href="https://twitter.com/SchemafreeSQL">
@@ -26,16 +45,13 @@
 </nav>
 <section id="hero" class="scrollsensor">
 	<div class="sectionWrap">
-		<main>	
-	
-	
+		<main>				
 This is the <a href="https://harmonious-mermaid-c4d794.netlify.app/">SchemafreeSQL Netlify Site</a> GOT Most Connected Demo.<br>
 <a href="https://github.com/SchemaFreeSQL/netlifysite/blob/main/public/got.html">This page(got.html)</a> calls two Netlify Function(AWS LAMDA) and prepares the data for use by the <a href="https://js.cytoscape.org/">Cytoscape.js</a> Graph theory network library<br>
 <br>
 Here is a direct link to the results of the <a href="/.netlify/functions/nodes">NODES</a> and <a href="/.netlify/functions/edges">Edges</a> functions and 
 the <a href="https://github.com/SchemaFreeSQL/netlifysite/tree/main/netlify/functions">node.js and edge.js functions</a>. Had to break it down into two functions because the browser and AWS LAMDA/Netlify where complaining (server-side php did not complain). Not shown in the demo are the <a href="nodemodify.json">Node</a> and <a href="edgemodify.json">Edge</a> modify commands that where first run to initially create the "GOT" structure. These modify commands use the raw Data from <a href="https://www.kaggle.com/code/mmmarchetti/game-of-thrones-network-analysis/data?select=book4.csv">Game of Thrones: Network Analysis: Book 4</a>. For this demo The Cloud SFSQL DB is hosted on <a href="https://planetscale.com/">Planet Scale</a> and the SFSQL VM is hosted on <a href="https://fly.io" >Fly.io</a>
 
-	
 		</main>
 	</div>
 </section>
@@ -63,7 +79,9 @@ req.open('GET', '/.netlify/functions/nodes',false);
 req.send(null);
 
 if(req.status == 200) {
-    
+    //var nodes = JSON.parse(req.responseText);
+	 
+	     //var nodes = JSON.parse(req.responseText);
         var nodes = req.responseText;
 			
 			var req2 = new XMLHttpRequest();
@@ -72,7 +90,7 @@ if(req.status == 200) {
 			req2.send(null);
 
 			if(req.status == 200) {
-				
+				 //var edges = JSON.parse(req2.responseText);
 				
 				var edges = req2.responseText;
 					
@@ -80,10 +98,20 @@ if(req.status == 200) {
 			}
 	
 }
-
+//var got = nodes + edges;
 const nodesarrary=JSON.parse(nodes);
 const edgesarray=JSON.parse(edges);
 const elements = nodesarrary.concat(edgesarray);
+//console.log(nodesarrary);
+console.log(elements);
+//var str = nodes.concat(edges);
+//const elements = [ JSON.parse(str) ];
+
+//console.log(elements);
+//var elements = []; // recommended way
+//elements.push(nodes);
+//elements.push(edges);
+//console.log(elements);
 var cy = cytoscape(
 {
 container: document.getElementById('cy'), // container to render in
@@ -177,8 +205,7 @@ cy.bind('click ', 'node', function (evt) {
 			<a href="https://schemafreesql.com/termsofservice.html" target="community">Terms Of Service</a>
 		</div>
 	</div>
-	<div>&copy; 2012-2022 Xornet, Inc.</div>
+	<div>&copy; 2012-2023 Xornet, Inc.</div>
 </div>
-
 </body>
 </html>
